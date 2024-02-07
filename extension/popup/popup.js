@@ -1,12 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('openNewTab').addEventListener('click', function () {
-        chrome.tabs.create({ url: 'chrome://newtab' }, function (tab) {
-            chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                function: function () {
-                    document.querySelector('input[name="url"]').focus();
-                }
-            });
-        });
+        const url = chrome.runtime.getURL('../newtab/newtab.html');
+        chrome.tabs.create({ url: url });
     });
 });
