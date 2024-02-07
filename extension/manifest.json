@@ -17,8 +17,9 @@
       "matches": ["<all_urls>"],
       "js": ["/scripts/content.js"]
     }
-  ],
-  "chrome_url_overrides": {
-    "newtab": "/newtab/newtab.html"
-  }
+  ]
+  // ],
+  // "chrome_url_overrides": {
+  //   "newtab": "/newtab/newtab.html"
+  // }
 }
