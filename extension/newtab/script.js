@@ -1,50 +1,51 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('form');
+console.log("testing");
 
-    // Prevent the form from submitting if certain conditions are not met
-    form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form from submitting to see the console log
+const form = document.querySelector('form');
 
-        // Example of retrieving and logging form data
-        const description = document.getElementById('darkPatternDescription').value;
-        const files = document.getElementById('darkPatternImages').files;
-        const additionalField = document.getElementById('additionalField').value;
-        const relatedLinks = document.getElementById('relatedLinks').value;
+form.addEventListener('submit', (event) => {
+  event.preventDefault(); // Prevent the form from submitting traditionally
 
-        console.log('Description:', description);
-        console.log('Files:', files);
-        console.log('Additional Field:', additionalField);
-        console.log('Related Links:', relatedLinks);
+  // Collect input values
+  const description = document.getElementById('darkPatternDescription').value.trim();
+  const files = document.getElementById('darkPatternImages').files;
+  const additionalField = document.getElementById('additionalField').value.trim();
+  const relatedLinks = document.getElementById('relatedLinks').value.trim();
+  // Collecting checkboxes
+  const checkboxes = document.querySelectorAll('input[name="darkPattern"]:checked');
+  let selectedPatterns = [];
+  checkboxes.forEach((checkbox) => {
+    selectedPatterns.push(checkbox.value);
+  });
 
-        // Here you can add validation or further processing
-        // For example, checking if the description is empty
-        if (!description.trim()) {
-            alert('Please describe the dark pattern.');
-            return;
-        }
+  // Basic Validation Example
+  if (!description) {
+    alert('Please describe the dark pattern.');
+    return; // Stop the function if validation fails
+  }
 
-        // For demonstration, we're logging the data to the console.
-        // In a real application, you might send this data to a server.
-        console.log('Form data is ready to be processed.');
+  // Log collected data for demonstration
+  console.log('Description:', description);
+  if (files.length > 0) {
+    console.log('Files:', Array.from(files).map(file => file.name));
+  }
+  if (additionalField) {
+    console.log('Additional Field:', additionalField);
+  }
+  if (relatedLinks) {
+    console.log('Related Links:', relatedLinks);
+  }
+  // Logging selected dark patterns
+  console.log('Selected Dark Patterns:', selectedPatterns.join(', '));
 
-        // Example of processing or sending data here
-        // This could involve AJAX requests or setting up fetch() to send data to a server
+  alert('Form submitted successfully!');
+});
 
-        // Reset the form after processing if needed
-        form.reset();
-    });
-
-    // Example functionality: showing file name when selected
-    const fileInput = document.getElementById('darkPatternImages');
-    fileInput.addEventListener('change', function() {
-        if (this.files && this.files.length > 0) {
-            const fileName = this.files[0].name;
-            console.log('Selected file:', fileName);
-            // Update the UI to show the file name or preview the image if needed
-        }
-    });
-
-    // Additional functionalities can be added as needed
-    // For example, validating the 'additionalField' or 'relatedLinks',
-    // or dynamically adding more input fields
+// Show file name when a file is selected
+const fileInput = document.getElementById('darkPatternImages');
+fileInput.addEventListener('change', () => {
+  if (fileInput.files.length > 0) {
+    const fileNameDisplay = document.createElement('span'); // You might want to place this element somewhere in your HTML
+    fileNameDisplay.textContent = `Selected file: ${fileInput.files[0].name}`;
+    fileInput.parentNode.insertBefore(fileNameDisplay, fileInput.nextSibling);
+  }
 });
