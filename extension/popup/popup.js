@@ -1,4 +1,13 @@
-console.log("This is a popup!")
-document.querySelector(".report-btn").addEventListener("click", function() {
-    console.log("One Step Close to Reporting!");
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('openNewTab').addEventListener('click', function () {
+        chrome.tabs.create({ url: 'chrome://newtab' }, function (tab) {
+            chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                function: function () {
+                    document.querySelector('input[name="url"]').focus();
+                }
+            });
+        });
+    });
 });
+
