@@ -1,6 +1,8 @@
 var urgency = [/\d+\s+available/, /only\s+\d+\s+left/,/sale\s+ends\s+in+\d/,
 "hurry up", "ending soon", "last chance","limited time","limited offer","limited stock"];
 
+var Ecomm = ["Add to Cart","Buy Now","Checkout","Add to Bag","Add to Basket","Add to Compare","Gift Someone","Add to Wishlist"];
+
 
 var a = document.documentElement.outerHTML;
 // console.log(a,"bad");
@@ -14,6 +16,16 @@ function DPchecker(list){
         }
     }
 }
+
+function isECommerce() {
+    for(var i=0;i<Ecomm.length;i++){
+        if(a.match(Ecomm[i])){
+            alert("This is an E-commerce site");
+            break;
+        }
+    }
+}
+
 
 document.addEventListener('click', function (event) {
     var ele=event.target.outerHTML;
