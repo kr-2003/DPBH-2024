@@ -1,6 +1,7 @@
 var urgency = [/\d+\s+available/, /only\s+\d+\s+left/,/sale\s+ends\s+in+\d/,
 "hurry up", "ending soon", "last chance","limited time","limited offer","limited stock"];
 
+
 var a = document.documentElement.outerHTML;
 // console.log(a,"bad");
 console.log(urgency);
@@ -14,4 +15,17 @@ function DPchecker(list){
     }
 }
 
+document.addEventListener('click', function (event) {
+    var ele=event.target.outerHTML;
+    console.log(ele,typeof(ele));
+    if(ele.match(/close/))
+    {
+        chrome.runtime.sendMessage({ cmd: 'nagging_plus_plus' }, function(response) {
+            console.log("Logged A Close Button Click");
+        });
+    }
+});
+
+
+isECommerce();
 DPchecker(urgency);
