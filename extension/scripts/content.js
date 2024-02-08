@@ -1,43 +1,46 @@
-var urgency = [/\d+\s+available/, /only\s+\d+\s+left/,/sale\s+ends\s+in+\d/,
+var Ecomm = ["Add to Cart","Buy Now","Checkout","Add to Bag","Add to Basket","Add to Compare","Gift Someone","Add to Wishlist"];
+urgency = [/\d+\s+available/, /only\s+\d+\s+left/,/sale\s+ends\s+in+\d/,
 "hurry up", "ending soon", "last chance","limited time","limited offer","limited stock"];
 
-var Ecomm = ["Add to Cart","Buy Now","Checkout","Add to Bag","Add to Basket","Add to Compare","Gift Someone","Add to Wishlist"];
 
+class DarkPattern {
+    constructor() {
+        this.urgencyPatterns = urgency;
+    }
 
-var a = document.documentElement.outerHTML;
-// console.log(a,"bad");
-console.log(urgency);
-function DPchecker(list){
-    for (var i = 0; i < list.length; i++) {
-        console.log("checking "+list[i]);
-        if (a.match(list[i])) {
-            alert("This page contains a Dark Pattern !!! " +list[i]);
-            break;
+    
+    DPchecker(htmlContent) {
+        for (var i = 0; i < this.urgencyPatterns.length; i++) {
+            var pattern = this.urgencyPatterns[i];
+            if (htmlContent.match(pattern)) {
+                alert("This page contains a Dark Pattern: " + pattern);
+                break;
+            }
         }
     }
+
 }
 
+var DP = new DarkPattern();
+var htmlContent = document.documentElement.outerHTML;
+DP.DPchecker(htmlContent);
+
 function isECommerce() {
-    for(var i=0;i<Ecomm.length;i++){
-        if(a.match(Ecomm[i])){
+    for(var i=0; i < Ecomm.length; i++) {
+        if (htmlContent.includes(Ecomm[i])) {
             alert("This is an E-commerce site");
             break;
         }
     }
 }
 
-
 document.addEventListener('click', function (event) {
-    var ele=event.target.outerHTML;
-    console.log(ele,typeof(ele));
-    if(ele.match(/close/))
-    {
+    var ele = event.target.outerHTML;
+    if (ele.includes("close")) {
         chrome.runtime.sendMessage({ cmd: 'nagging_plus_plus' }, function(response) {
             console.log("Logged A Close Button Click");
         });
     }
 });
 
-
 isECommerce();
-DPchecker(urgency);
