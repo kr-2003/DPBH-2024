@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
         chrome.tabs.create({ url: url });
     });
     
-    const url = "http://127.0.0.1:8000";
-    const temp = "abcd";
+    const url = "http://localhost:3000/index";
+    const temp = "1 2 3 4 5 6 7 8 9 0";
     var params = {
         method:'POST',
         headers: {
@@ -14,17 +14,17 @@ document.addEventListener('DOMContentLoaded', function () {
         body: JSON.stringify({ website: temp})
     }
     
-    var crowdsource;
 
     fetch(url,params)
-        .then(response => response.json())
+        .then(response => {
+            console.log(response);
+            return response.json();
+        })
         .then(data => {
-            crowdsource = data;
-            console.log(crowdsource);
+            console.log("data : ",data.website);
+            document.getElementsByClassName('crowdsource-results')[0].innerHTML = "data from server: " + data.website;
         })
         .catch(error => console.error('Error:', error));
-    
-    document.getElementsByClassName('crowdsource-results')[0].innerHTML = "data from server: " + crowdsource;
-    
+        
 });
 
