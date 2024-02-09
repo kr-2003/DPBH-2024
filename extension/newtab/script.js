@@ -23,7 +23,6 @@ const data = {
   image: files[0],
   dark_patterns: selectedPatterns
 };
-
 // Use the fetch API to send the POST request
 fetch('http://127.0.0.1:8000/', {
   method: 'POST', // Specify the method
