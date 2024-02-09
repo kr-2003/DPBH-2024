@@ -1,58 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="popup.css" />
-  </head>
 
-  <body>
-    <div class="popup">
-      <div class="branding">
-        <img src="../static/logo.jpg" class="logo" alt="Logo" />
-        <div class="branding-text">
-          <h4 class="main-heading">NYAYA DRISHTI</h4>
-          <p class="motto">Seeking Transparency in the Digital World</p>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css" />
+</head>
+
+<body>
+  <div class="popup">
+    <div class="head-wrapper">
+      <div class="head-img">
+        <img src="../static/logo.jpg" alt="logo" class="logo" />
       </div>
-      <p class="text">
-        Here you'll get the dark pattern statistics on the current website
-      </p>
-
-      <div class="dark-patterns-container">
-        <div class="dark-patterns">
-          <p class="dp-info">PATTERN ___</p>
-          <p class="dp-info">PATTERN ___</p>
-          <p class="dp-info">PATTERN ___</p>
-          <p class="dp-info">PATTERN ___</p>
-          <p class="dp-info">PATTERN ___</p>
-          <p class="dp-info">PATTERN ___</p>
-          <p class="dp-info">PATTERN ___</p>
-          <p class="dp-info">PATTERN ___</p>
-          <p class="dp-info">PATTERN ___</p>
-          <!-- More patterns can be added here -->
-        </div>
+      <p class="main-heading">Nyaya Drishti</p>
+    </div>
+    <div class="buttons-bar">
+      <div id="inner-bar">
+        <button id="button1" class="active">Local</button>
+        <button id="button2">Crowdsource</button>
       </div>
-      <hr />
-
-        <div class="croudsource-panel">
-            <div class="crowdsource-results">
-                <p class="text">This Site has been flagged by X people.</p>
-                <button id="info">info</button>
-            </div>
-
-            <div class='detailed-results' style="display: none; position: absolute; background-color: white; border: 1px solid black; padding: 10px;">
-                <p> The Detailed Results </p>
-            </div>
-
-            <div class="report">
-                <p>Help us make the web a better place</p>
-                <button id="openNewTab">Report Dark Pattern</button>
-            </div>
-        </div>
+    </div>
+    <div id="local">
+      <div class="local-content">
+        <ul class="local-list">
+          <li>Aesthetic List Item 1</li>
+          <li>Aesthetic List Item 2</li>
+          <li>Aesthetic List Item 3</li>
+          <li>Aesthetic List Item 1</li>
+          <li>Aesthetic List Item 2</li>
+          <li>Aesthetic List Item 3</li>
+          <li>Aesthetic List Item 1</li>
+          <li>Aesthetic List Item 2</li>
+          <li>Aesthetic List Item 3</li>
+          <li>Aesthetic List Item 1</li>
+          <li>Aesthetic List Item 2</li>
+          <li>Aesthetic List Item 3</li>
+        </ul>
+      </div>
+      <div class="local-footer">
+        <button class="local-footer-button">Report Dark Pattern</button>
+      </div>
+    </div>
+    <div id="crowdsource" class="hidden-content">
+      <div class="crowdsource-content">
+        <p class="crowdsource-heading">Crowdsource</p>
+        <p class="crowdsource-text">This is the crowdsource content</p>
+      </div>
     </div>
 
-    <script src="popup.js"></script>
-  </body>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
 </html>
