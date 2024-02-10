@@ -4,18 +4,29 @@ document.addEventListener('DOMContentLoaded', function () {
         chrome.tabs.create({ url: url });
     });
     
+    var url = 'http://127.0.0.1:8000/index/';
+    const temp = "1 2 3 4 5 6 7 8 9 0";
+    var params = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ website: "onlyabhinav.com"})
+    };
 
-
+    
 fetch(url,params)
     .then(response => {
         console.log(response);
         return response.json();
     })
     .then(data => {
-        console.log("data : ",data.website);
-        document.getElementsByClassName('crowdsource-results')[0].innerHTML = "data from server: " + data.website;
+        console.log("data : ",data.message);
+        document.getElementsByClassName('crowdsource-results')[0].innerHTML = "data from server: " + data.message;
     })
-    .catch(error => console.error('Error:', error));
+    .catch(error => {
+        console.error('Error:', error);
+    }, false)
     
 });
 
