@@ -22,7 +22,11 @@ fetch(url,params)
     })
     .then(data => {
         console.log("data : ",data.message);
-        document.getElementsByClassName('crowdsource-results')[0].innerHTML = "data from server: " + data.message;
+        var dataCount = data.message;
+        for (var i = 0; i < dataCount.length; i++) {
+            document.getElementsByClassName('crowdsource-item-data-count')[i].innerHTML = dataCount[i];
+        }
+        // document.getElementsByClassName('crowdsource-item-data-count')[0].innerHTML = dataCount[0];
     })
     .catch(error => {
         console.error('Error:', error);

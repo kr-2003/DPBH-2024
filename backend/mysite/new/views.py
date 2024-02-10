@@ -61,7 +61,8 @@ def index(request):
             if l==0:
                 arr[i] = 0.0
             else:
-                arr[i] = arr[i]/l*1.0;
+                arr[i] = arr[i]*100
+                arr[i] = ((arr[i]/l*1.0)).__round__(2);
         response = {"message" : arr}
         return HttpResponse(json.dumps(response), content_type="application/json")
     return HttpResponse("hello")
