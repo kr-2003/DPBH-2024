@@ -2,6 +2,8 @@
 
 var cart = new Set();
 
+var darkPatternsDetected = new Set();
+
 
 
 function sendPopup(){
@@ -28,8 +30,13 @@ chrome.runtime.onMessage.addListener(
 
       let differenceInPrice = Math.abs(calculatedTotalPrice - totalPriceInInt);
       console.log(differenceInPrice);
-      chrome.runtime.sendMessage({ cmd: 'price_dipping', data: {subject: "Price Difference", content: differenceInPrice} });
-
+      if(differenceInPrice > 0){
+        darkPatternsDetected.add({ cmd: 'price_dipping', data: {subject: "Price Difference", content: differenceInPrice} });
+      }
+    } else if(request.message === "getDarkPatterns") {
+      console.log("Received message from popup.js:", request);
+      console.log("Sending dark patterns info to popup.js:", Array.from(darkPatternsDetected));
+      sendResponse({data: Array.from(darkPatternsDetected)});
     }
 });
 

@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "DPBH Extension",
+  "name": "DPBH Extension Abhinav",
   "version": "2.0",
   "description": "This extension is for the DPBH hackathon",
   "permissions": [
@@ -18,7 +18,12 @@
       "js": ["/scripts/content.js"]
     }
   ],
-  "chrome_url_overrides": {
-    "randomTab": "/newtab/newtab.html"
-  }
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "/scripts/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
