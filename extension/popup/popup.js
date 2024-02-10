@@ -5,13 +5,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     var url = 'http://127.0.0.1:8000/index/';
-    const temp = "1 2 3 4 5 6 7 8 9 0";
+    var url1;
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        console.log(tabs)
+    url1 = tabs[0].url; // there will be only one in this array
+    });
+    console.log(url1);
+    // console.log(temp);
     var params = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ website: "onlyabhinav.com"})
+        body: JSON.stringify({ website: url1})
     };
 
     
