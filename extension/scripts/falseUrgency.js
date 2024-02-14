@@ -2,7 +2,7 @@
 import { getAllVisibleChildrenText } from "./dripPricing.js";
 
 var Ecomm = ["Add to Cart","Buy Now","Checkout","Add to Bag","Add to Basket","Add to Compare","Gift Someone","Add to Wishlist"];
-var urgency = [/\d+\s+available/, /only\s+\d+\s+left/,/sale\s+ends\s+in+\d/, "hurry up", "ending soon", "last chance","limited time","limited offer","limited stock"];
+var urgency = [/\d+\s+available/, /only\s+\d+\s+left/,/sale\s+ends\s+in+\d/, "hurry up", "ending soon", "last chance","limited time","limited offer","limited stock",];
 
 
 class DarkPattern {
@@ -45,7 +45,7 @@ DP.DPchecker(htmlContentArray);
 document.addEventListener('click', function (event) {
     var ele = event.target.outerHTML;
     if (ele.includes("close")) {
-        chrome.runtime.sendMessage({ cmd: 'nagging_plus_plus', url: window.location.replace(/\//g, '') }, function(response) {
+        chrome.runtime.sendMessage({ cmd: 'nagging_plus_plus'}, function(response) {
             console.log("Logged A Close Button Click");
         });
     }
