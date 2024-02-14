@@ -1,21 +1,29 @@
 {
   "manifest_version": 3,
-  "name": "DPBH Extension",
+  "name": "DPBH Extension Main",
   "version": "2.0",
   "description": "This extension is for the DPBH hackathon",
   "permissions": [
-    "activeTab","tabs", "scripting"
+    "activeTab", "storage", "scripting","tabs"
   ],
   "background": {
-    "service_worker": "/scripts/background.js"
+    "service_worker": "./scripts/background.js"
   },
   "action": {
-    "default_popup": "/popup/popup.html"
+    "default_popup": "./popup/popup.html"
   },
   "content_scripts": [
     {
       "matches": ["https://*/*"],
       "js": ["./scripts/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "/scripts/*"
+      ],
+      "matches": ["<all_urls>"]
     }
   ]
 }
