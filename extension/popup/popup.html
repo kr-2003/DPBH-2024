@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <title>Document</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +29,15 @@
     <div id="local">
       <div class="local-content">
         <ul class="local-list">
-          <li class="ajio-false">False Urgency</li>
+          <li class="ajio-false">
+            <div style="display:flex; flex-direction:row; justify-content: space-between;">
+              <div>False Urgency</div>
+              <div class="show-more"><img style="width: 20px; height: 20px;" src="../static/dropdown.png"></img></div>
+            </div>
+            <div class="details">
+              <p>Details about False Urgency: .... </p> 
+            </div>
+          </li>
           <!-- <li>Basket Sneaking</li>
           <li>False Urgency</li>
           <li>Shaming</li> -->

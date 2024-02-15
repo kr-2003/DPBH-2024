@@ -159,7 +159,7 @@ function isCheckoutButton(element) {
     return textContent && checkoutWords.some(word => textContent.toLowerCase().includes(word.toLowerCase()));
 }
 
-function cleanUrl() {
+export function cleanUrl() {
     let currentURL = window.location.href;
     let urlObject = new URL(currentURL);
     let cleanURL = `${urlObject.protocol}//${urlObject.hostname}/`;

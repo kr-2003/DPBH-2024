@@ -5,24 +5,34 @@ body {
 .popup {
     display: flex;
     flex-direction: column;
-    height : auto;
-    width: 400px; /* Or your preferred width */
-    border: 1px solid #ccc; /* Optional border */
-    border-radius: 5px; /* Optional rounded corners */
-    overflow: hidden; /* Ensures nothing overflows the popup */
-    background-color: #fff; /* Background color */
+    height: auto;
+    width: 400px;
+    /* Or your preferred width */
+    border: 1px solid #ccc;
+    /* Optional border */
+    border-radius: 5px;
+    /* Optional rounded corners */
+    overflow: hidden;
+    /* Ensures nothing overflows the popup */
+    background-color: #fff;
+    /* Background color */
     padding: 4px;
 }
 
 .dark-patterns-container {
-    flex-grow: 1; /* Allows this container to grow and fill available space */
-    overflow-y: auto; /* Enables scrolling for this section */
+    flex-grow: 1;
+    /* Allows this container to grow and fill available space */
+    overflow-y: auto;
+    /* Enables scrolling for this section */
 }
 
 .croudsource-panel {
-    background-color: #f5f5f5; /* Different background color for the footer */
-    padding: 10px; /* Padding for spacing */
-    border-top: 1px solid #e5e5e5; /* Line to separate footer from content */
+    background-color: #f5f5f5;
+    /* Different background color for the footer */
+    padding: 10px;
+    /* Padding for spacing */
+    border-top: 1px solid #e5e5e5;
+    /* Line to separate footer from content */
 }
 
 
@@ -31,15 +41,19 @@ body {
 .branding {
     display: flex;
     align-items: center;
-    background-color: #4A90E2; /* Updated color */
+    background-color: #4A90E2;
+    /* Updated color */
     color: #fff;
     padding: 10px;
-    border-radius: 5px; /* Rounded corners for the branding bar */
+    border-radius: 5px;
+    /* Rounded corners for the branding bar */
 }
 
 .branding-text h4.main-heading {
-    margin: 0 0 5px 0; /* Adjusted margin for heading */
-    font-size: 18px; /* Adjusted size */
+    margin: 0 0 5px 0;
+    /* Adjusted margin for heading */
+    font-size: 18px;
+    /* Adjusted size */
     font-weight: bold;
     color: #fff;
 }
@@ -47,43 +61,58 @@ body {
 .branding-text p.motto {
     margin: 0;
     font-size: 12px;
-    color: #BFD7FF; /* Lighter shade for motto to contrast with the main heading */
+    color: #BFD7FF;
+    /* Lighter shade for motto to contrast with the main heading */
 }
 
 .logo {
-    height: 60px; /* Adjusted size */
-    width: auto; /* Keep aspect ratio */
-    margin-right: 10px; /* Add some space between logo and text */
+    height: 60px;
+    /* Adjusted size */
+    width: auto;
+    /* Keep aspect ratio */
+    margin-right: 10px;
+    /* Add some space between logo and text */
 }
 
-.text, .dp-info {
-    color: #333; /* Darker text for better readability */
-    line-height: 1.5; /* Improved line height for readability */
-    padding: 5px 0; /* Added padding for spacing */
+.text,
+.dp-info {
+    color: #333;
+    /* Darker text for better readability */
+    line-height: 1.5;
+    /* Improved line height for readability */
+    padding: 5px 0;
+    /* Added padding for spacing */
 }
 
 .dp-info {
-    background-color: #EFF6FF; /* Light background for pattern info */
-    margin: 5px 0; /* Space between pattern infos */
+    background-color: #EFF6FF;
+    /* Light background for pattern info */
+    margin: 5px 0;
+    /* Space between pattern infos */
     padding: 10px;
-    border-radius: 5px; /* Rounded corners for dp info */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    border-radius: 5px;
+    /* Rounded corners for dp info */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow for depth */
 }
 
 hr {
     border: none;
     height: 1px;
-    background-color: #e5e5e5; /* Light grey line */
-    margin: 15px 0; /* More space around hr */
+    background-color: #e5e5e5;
+    /* Light grey line */
+    margin: 15px 0;
+    /* More space around hr */
 }
 
 .croudsource-panel .report p {
-    margin: 10px 0; /* More space above the report prompt */
+    margin: 10px 0;
+    /* More space above the report prompt */
 }
 
 
 
-.main-heading{
+.main-heading {
     font-size: 15px;
     font-weight: bold;
     font-family: 'Ubuntu', sans-serif;
@@ -109,9 +138,12 @@ hr {
 }
 
 .active {
-    background-color: white; /* Set background color to white */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-  }
+    background-color: white;
+    /* Set background color to white */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* Add shadow effect */
+}
+
 .buttons-bar {
     margin-top: 10px;
     background-color: #f5f5f5;
@@ -150,45 +182,55 @@ hr {
     margin: 20px;
     flex-grow: 1;
     height: 300px;
-    background-color: #f5f5f5; /* Light gray background */
+    background-color: #f5f5f5;
+    /* Light gray background */
     padding: 20px;
-    border-radius: 10px; /* Rounded corners for aesthetic appearance */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    border: 1px solid #e5e5e5; /* Border around the content */
-    overflow-y: auto; 
-  }
+    border-radius: 10px;
+    /* Rounded corners for aesthetic appearance */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+    border: 1px solid #e5e5e5;
+    /* Border around the content */
+    overflow-y: auto;
+}
 
 .local-content p {
-    margin-bottom: 10px; /* Add spacing between paragraphs */
+    margin-bottom: 10px;
+    /* Add spacing between paragraphs */
 }
 
 .local-list {
-    list-style: none; /* Remove default list styles */
+    list-style: none;
+    /* Remove default list styles */
     padding: 0;
 }
 
 .local-list li {
-    background-color: #fff; /* White background for list items */
+    background-color: #fff;
+    /* White background for list items */
     padding: 20px;
     border-radius: 5px;
-    margin-bottom: 5px; /* Add spacing between list items */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    margin-bottom: 5px;
+    /* Add spacing between list items */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
     cursor: pointer;
 }
 
-  
-  .local-footer {
+
+.local-footer {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px; /* Adjust height as needed */
+    height: 50px;
+    /* Adjust height as needed */
     background-color: #f5f5f5;
     border-top: 1px solid #e5e5e5;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+}
 
 .local-footer-button {
     width: 80%;
@@ -198,58 +240,98 @@ hr {
     padding: 10px;
     background-color: #f5f5f5;
     border: none;
-    background-color: #ff5555; /* Red aesthetic color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    padding: 8px 16px; /* Adjust padding as needed */
-    border-radius: 4px; /* Optional: Add border radius for rounded corners */
-  }
-  
-  .local-footer-button button {
-    background-color: #ff5555; /* Red aesthetic color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    padding: 8px 16px; /* Adjust padding as needed */
-    border-radius: 4px; /* Optional: Add border radius for rounded corners */
-  }
-  
-  .local-footer-button:hover {
-    background-color: #ff3333; /* Darker red on hover */
-    cursor: pointer;
-  }
+    background-color: #ff5555;
+    /* Red aesthetic color */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    padding: 8px 16px;
+    /* Adjust padding as needed */
+    border-radius: 4px;
+    /* Optional: Add border radius for rounded corners */
+}
 
- .crowdsource-content{
+.local-footer-button button {
+    background-color: #ff5555;
+    /* Red aesthetic color */
+    color: white;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    padding: 8px 16px;
+    /* Adjust padding as needed */
+    border-radius: 4px;
+    /* Optional: Add border radius for rounded corners */
+}
+
+.local-footer-button:hover {
+    background-color: #ff3333;
+    /* Darker red on hover */
+    cursor: pointer;
+}
+
+.crowdsource-content {
     margin: 20px;
     flex-grow: 1;
     height: 300px;
-    background-color: #f5f5f5; /* Light gray background */
+    background-color: #f5f5f5;
+    /* Light gray background */
     padding: 20px;
-    border-radius: 10px; /* Rounded corners for aesthetic appearance */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    border: 1px solid #e5e5e5; /* Border around the content */
-    overflow-y: auto; 
- }
+    border-radius: 10px;
+    /* Rounded corners for aesthetic appearance */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
+    border: 1px solid #e5e5e5;
+    /* Border around the content */
+    overflow-y: auto;
+}
 
- .crowdsource-item{
+.crowdsource-item {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 0;
- }
+}
 
- .crowdsource-list{
-    list-style: none; /* Remove default list styles */
+.crowdsource-list {
+    list-style: none;
+    /* Remove default list styles */
     padding: 0;
- }
- .crowdsource-list li {
-    background-color: #fff; /* White background for list items */
+}
+
+.crowdsource-list li {
+    background-color: #fff;
+    /* White background for list items */
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 5px; /* Add spacing between list items */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    margin-bottom: 5px;
+    /* Add spacing between list items */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    /* Shadow effect */
     cursor: pointer;
 }
 
-.crowdsource-item-text{
+.crowdsource-item-text {
     font-weight: bold;
+}
+
+.details {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.show-details {
+    max-height: 100px;
+    /* Adjust height as needed */
+    display: block;
+}
+
+.crowdsource-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
 }
