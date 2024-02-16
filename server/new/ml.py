@@ -43,7 +43,9 @@ class RF:
         return prediction.tolist()
 
     def result(self, textList):
-        return Counter(self.predict(textList))
-
+        res=Counter(self.predict(textList))
+        if 5 in res:
+            del res[5]
+        return res
     def score(self, text):
         pass
