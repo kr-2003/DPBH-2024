@@ -11,7 +11,7 @@ export function main() {
         if (request.msg == "highlight") {
             scrollAndHighlight(request.darkPatterns.data.elementCoordinates);
         } else if (request.msg === "populate") {
-            alert("hello");
+            // alert("hello");
             const darkPattern = request.darkPatterns;
             let localList = document.querySelector('.local-list');
             console.log(localList);

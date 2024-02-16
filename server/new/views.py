@@ -36,7 +36,7 @@ def home(request):
         related_links = body["related_links"]
         review_description = body["review_description"]
         additional_comments = body["additional_comments"]
-        image = body["image"]
+        image = None
         dark_patterns = body["dark_patterns"]
         s = ""
         for i, j in MY_CHOICES:
@@ -85,7 +85,7 @@ def index(request):
 @csrf_exempt
 def predict(request):
     if request.method == "POST":
-        print(request.body)
+        # print(request.body)
         body_unicode = request.body.decode("utf-8")
         body = json.loads(body_unicode)
         text = body["text"]

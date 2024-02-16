@@ -1,7 +1,7 @@
 // Description: This script runs in the background and listens for messages from content.js
 // import config from "./config.js";
 const config = {
-  "server": "http://10.250.10.141:8000"
+  "server": "http://localhost:8000"
 }
 
 var cart = new Set();

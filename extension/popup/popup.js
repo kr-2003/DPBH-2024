@@ -41,25 +41,25 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 
 
-    // let url = await getCurrentTabURL()
-    // console.log(url);
-    // // console.log(temp);
-    // var params = {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({ website: url })
-    // };
+    let url = await getCurrentTabURL()
+    console.log(url);
+    // console.log(temp);
+    var params = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ website: url })
+    };
 
-    // let res = await fetch(serverUrl, params);
-    // console.log(res);
-    // let data = await res.json()
-    // console.log(data);
-    // let dataCount = data.message
-    // for (var i = 0; i < dataCount.length; i++) {
-    //     document.getElementsByClassName('crowdsource-item-data-count')[i].innerHTML = dataCount[i];
-    // }
+    let res = await fetch(serverUrl, params);
+    console.log(res);
+    let data = await res.json()
+    console.log(data);
+    let dataCount = data.message
+    for (var i = 0; i < dataCount.length; i++) {
+        document.getElementsByClassName('crowdsource-item-data-count')[i].innerHTML = dataCount[i];
+    }
 
 
 
@@ -159,6 +159,8 @@ function sendMessageToBackground() {
                 var img = document.createElement('img');
                 var div3 = document.createElement('div');
                 // div3.classList.add("");
+                if(!value.data.count)
+                    value.data.count = '';
                 div3.appendChild(document.createTextNode(value.data.count));
                 img.style.width = "20px";
                 img.style.height = "20px";
@@ -171,6 +173,7 @@ function sendMessageToBackground() {
                 var details = document.createElement('div');
                 details.classList.add("details");
                 var p = document.createElement('p');
+                
                 p.appendChild(document.createTextNode("Details about " + key + ": " + value.data.count));
                 details.appendChild(p);
                 li.appendChild(details);
@@ -207,36 +210,38 @@ function sendMessageToBackground() {
         //         }
         //     ]
         // }
-        // // let url = await getCurrentTabURL();
+        // url = await getCurrentTabURL();
         // url = "https://checkout.proflowers.com/";
-        // let darkPatterns = elementInfo[url][0];
-        // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-        //     var activeTab = tabs[0];
-        //     chrome.tabs.sendMessage(activeTab.id, {msg: "highlight", darkPatterns: darkPatterns});
-        //     // chrome.tabs.sendMessage(activeTab.id, {msg: "populate", darkPatterns: elementInfo[url]});
-        // });
-
-        // localList = document.querySelector('.local-list');
-        // console.log(localList);
-        // for (let i = 0; i < elementInfo[url].length; i++) {
-        //     const li = document.createElement('li');
-        //     li.appendChild(document.createTextNode(elementInfo[url][i].darkPattern));
-        //     li.addEventListener('click', function () {
-        //         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-        //             var activeTab = tabs[0];
-        //             chrome.tabs.sendMessage(activeTab.id, { msg: "highlight", darkPatterns: elementInfo[url][i] });
-        //         });
-        //     });
-        //     localList.appendChild(li);
-        // }
-    });
-
-    document.querySelector(".ajio-false").addEventListener('click', function () {
-        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        url = await cleanUrl(url);
+        console.log(elementInfo[url]);
+        let darkPatterns = elementInfo[url]['Basket Sneaking'];
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             var activeTab = tabs[0];
-            chrome.tabs.sendMessage(activeTab.id, { msg: "ajio-hardcode" });
+            chrome.tabs.sendMessage(activeTab.id, {msg: "highlight", darkPatterns: darkPatterns});
+            chrome.tabs.sendMessage(activeTab.id, {msg: "populate", darkPatterns: elementInfo[url]});
         });
+
+        localList = document.querySelector('.local-list');
+        console.log(localList);
+        for (let i = 0; i < elementInfo[url].length; i++) {
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(elementInfo[url][i].darkPattern));
+            li.addEventListener('click', function () {
+                chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                    var activeTab = tabs[0];
+                    chrome.tabs.sendMessage(activeTab.id, { msg: "highlight", darkPatterns: elementInfo[url][i] });
+                });
+            });
+            localList.appendChild(li);
+        }
     });
+
+    // document.querySelector(".ajio-false").addEventListener('click', function () {
+    //     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    //         var activeTab = tabs[0];
+    //         chrome.tabs.sendMessage(activeTab.id, { msg: "ajio-hardcode" });
+    //     });
+    // });
 }
 
 // Call the function initially
