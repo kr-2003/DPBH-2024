@@ -2,7 +2,7 @@ import "./dripPricing.js";
 import "./falseUrgency.js";
 import "./mlEngine.js";
 
-import { scrollAndHighlight, ajioHardcode } from "./util.js";
+import { scrollAndHighlight, ajioHardcode, scrollAndChangeBackground } from "./util.js";
 
 export function main() {
     console.log("Simple log from main!");
@@ -24,6 +24,15 @@ export function main() {
         } else if(request.msg === "ajio-hardcode") {
             // alert("hello")
             ajioHardcode();
+        } else if(request.msg === "changeBackground") {
+            let allText = request.data;
+            alert("hello");
+            console.log(allText);
+            let eachELementCoordinates = [];
+            for (let i = 0; i < allText.length; i++) {
+
+            }
+            // scrollAndChangeBackground(request.darkPatterns.data.elementCoordinates);
         }
         // Do something in response to the message
     });

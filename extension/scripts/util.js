@@ -20,8 +20,23 @@ export function scrollAndHighlight(elementCoordinates) {
     highlight.style.height = `${height}px`;
     highlight.style.width = `${width * 8}px`;
     highlight.style.zIndex = '9999';
-
     document.body.appendChild(highlight);
+}
+
+export function scrollAndChangeBackground(elementCoordinates) {
+    // Extracting coordinates
+    const { top, left, bottom, right, width, height } = elementCoordinates;
+
+    // Scroll to the element
+    window.scrollTo({
+        top: top - (window.innerHeight / 2) + (height / 2),
+        left: left - (window.innerWidth / 2) + (width / 2),
+        behavior: 'smooth'
+    });
+
+    // Change the background of the element
+    const element = document.elementFromPoint(left, top);
+    element.style.backgroundColor = 'red';
 }
 
 // export function populatePopup(darkPattern) {

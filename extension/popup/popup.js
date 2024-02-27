@@ -20,7 +20,8 @@ function cleanUrl(currentURL) {
 }
 
 
-const serverUrl = "http://127.0.0.1:8000/index"
+let serverUrl = "http://127.0.0.1:8000/index"
+serverUrl="http://10.250.11.170:8000/index"
 
 document.addEventListener('DOMContentLoaded', async function () {
 
@@ -161,10 +162,10 @@ function sendMessageToBackground() {
                 // div3.classList.add("");
                 if(!value.data.count)
                     value.data.count = '';
-                div3.appendChild(document.createTextNode(value.data.count));
-                img.style.width = "20px";
-                img.style.height = "20px";
-                img.src = "../static/dropdown.png";
+                div3.appendChild(document.createTextNode(value.data.count.length));
+                // img.style.width = "20px";
+                // img.style.height = "20px";
+                // img.src = "../static/dropdown.png";
                 div2.appendChild(img);
                 div.appendChild(div1);
                 div.appendChild(div3);
@@ -180,11 +181,14 @@ function sendMessageToBackground() {
                 localList.appendChild(li);
             
                 // Use a closure to capture the correct detailsDiv for each div2
-                (function(detailsDiv) {
-                    div2.addEventListener("click", () => {
-                        detailsDiv.classList.toggle("show-details");
+                (function() {
+                    div.addEventListener("click", () => {
+                        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+                            var activeTab = tabs[0];
+                            chrome.tabs.sendMessage(activeTab.id, { msg: "changeBackground", data: value.data.count });
+                        });
                     });
-                })(details);
+                })();
             }
             
         }
