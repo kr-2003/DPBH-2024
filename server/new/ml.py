@@ -43,9 +43,21 @@ class RF:
         return prediction.tolist()
 
     def result(self, textList):
-        res=Counter(self.predict(textList))
-        if 5 in res:
-            del res[5]
+        result = self.predict(textList)
+        res = {}
+        print(result)
+        for k, v in zip(result, textList):
+            if k == 5:
+                continue
+            if k in res:
+                print("yes")
+                res[k].append(v)
+            else:
+                res[k] = [v]
+        # res=Counter(self.predict(textList))
+        # if 5 in res:
+        #     del res[5]
+        print(res)
         return res
     def score(self, text):
         pass
