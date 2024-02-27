@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build: ./server
+    ports:
+      - 8000:8000
+    volumes:
+      - ./models/:/models/:ro
+      - ./server/db.sqlite3:/app/db.sqlite3
+      - ./server/media/:/app/media/
+      - ./server/staticfiles/:/app/staticfiles/
