@@ -18,7 +18,7 @@ git clone https://github.com/kr-2003/DPBH-2024 && cd DPBH-2024-main
 
 - Install Python Dependencies
 ```
-pip install -r requirements.txt
+cd server && pip install -r requirements.txt
 ```
 
 
