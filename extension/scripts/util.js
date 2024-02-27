@@ -23,20 +23,29 @@ export function scrollAndHighlight(elementCoordinates) {
     document.body.appendChild(highlight);
 }
 
-export function scrollAndChangeBackground(elementCoordinates) {
+export function changeBackground(elementCoordinates) {
     // Extracting coordinates
     const { top, left, bottom, right, width, height } = elementCoordinates;
 
-    // Scroll to the element
-    window.scrollTo({
-        top: top - (window.innerHeight / 2) + (height / 2),
-        left: left - (window.innerWidth / 2) + (width / 2),
-        behavior: 'smooth'
-    });
+    // change bg 
+    const highlight = document.createElement('div');
+    highlight.style.position = 'absolute';
+    highlight.style.border = '2px solid red';
+    highlight.style.top = `${top}px`;
+    highlight.style.left = `${left}px`;
+    highlight.style.bottom = `${bottom}px`;
+    highlight.style.right = `${right}px`;
+    highlight.style.height = `${height}px`;
+    highlight.style.width = `${width}px`;
+    highlight.style.zIndex = '9999';
+    document.body.appendChild(highlight);
+}
 
-    // Change the background of the element
-    const element = document.elementFromPoint(left, top);
-    element.style.backgroundColor = 'red';
+export function changeBackgroundRevamped(element) {
+    // change bg
+    element.style.border = "2px solid red";
+    element.style.backgroundColor = "red";
+    element.style.color = "white";
 }
 
 // export function populatePopup(darkPattern) {

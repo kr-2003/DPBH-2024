@@ -2,7 +2,7 @@ import "./dripPricing.js";
 import "./falseUrgency.js";
 import "./mlEngine.js";
 
-import { scrollAndHighlight, ajioHardcode, scrollAndChangeBackground } from "./util.js";
+import { scrollAndHighlight, ajioHardcode, changeBackground, changeBackgroundRevamped } from "./util.js";
 
 export function main() {
     console.log("Simple log from main!");
@@ -29,10 +29,30 @@ export function main() {
             alert("hello");
             console.log(allText);
             let eachELementCoordinates = [];
+            let eachElement = [];
             for (let i = 0; i < allText.length; i++) {
-
+                // finding the corresponding elements in the DOM
+                let elements = [...document.querySelectorAll('*')];
+                elements = elements.filter(element => element.textContent === allText[i]);
+                for (let j = 0; j < elements.length; j++) {
+                    let rect = elements[j].getBoundingClientRect();
+                    let coordinates = {
+                        top: rect.top,
+                        left: rect.left,
+                        bottom: rect.bottom,
+                        right: rect.right,
+                        width: rect.width,
+                        height: rect.height
+                    };
+                    eachELementCoordinates.push(coordinates);
+                    eachElement.push(elements[j]);
+                }
             }
-            // scrollAndChangeBackground(request.darkPatterns.data.elementCoordinates);
+            console.log(eachELementCoordinates);
+            for (let i = 0; i < eachELementCoordinates.length; i++) {
+                // changeBackground(eachELementCoordinates[i]);
+                changeBackgroundRevamped(eachElement[i])
+            }
         }
         // Do something in response to the message
     });
